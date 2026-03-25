@@ -1,54 +1,175 @@
+/* Container glass effect */
 .spinner-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+  
+}
+
+/* The Gold Outer Ring */
+.wheel-wrapper {
+  position: relative;
+  padding: 12px;
+  background: linear-gradient(145deg, #fbbf24, #b45309);
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(251, 191, 36, 0.2), inset 0 0 10px rgba(0,0,0,0.3);
 }
 
 .wheel {
-  width: 250px;
-  height: 250px;
+  width: 320px;
+  height: 320px;
   border-radius: 50%;
   position: relative;
-  border: 8px solid #333;
+  border: 6px solid #022c22;
   overflow: hidden;
-  transition: transform 3s ease-out;
+  transition: transform 5s cubic-bezier(0.2, 0, 0, 1);
+  /* Elegant Slices */
+  background: conic-gradient(
+    #064e3b 0deg 72deg, 
+    #065f46 72deg 144deg, 
+    #059669 144deg 216deg, 
+    #10b981 216deg 288deg, 
+    #34d399 288deg 360deg
+  );
 }
 
 .slice {
   position: absolute;
-  width: 50%;
-  height: 50%;
-  background: red;
-  top: 50%;
-  left: 50%;
-  transform-origin: 0% 0%;
-  clip-path: polygon(0 0, 100% 0, 0 100%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 30px;
+  color: #fbbf24;
+  font-weight: 900;
+  font-size: 20px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
-
-.slice:nth-child(1) { background: #ff7675; }
-.slice:nth-child(2) { background: #74b9ff; }
-.slice:nth-child(3) { background: #55efc4; }
-.slice:nth-child(4) { background: #ffeaa7; }
-.slice:nth-child(5) { background: #a29bfe; }
-
 .slice span {
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  font-size: 14px;
-  transform: rotate(45deg);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800; /* Makes the ৳ values look heavy and expensive */
+  font-size: 22px;
+  letter-spacing: -1px;
 }
 
+/* The Glowing Pointer */
 .pointer {
-  margin-top: 10px;
-  font-size: 24px;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  font-size: 45px;
+  filter: drop-shadow(0 0 15px #fbbf24);
+  animation: bounce 0.6s infinite alternate ease-in-out;
 }
 
-.spin-btn,
-.claim-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
+@keyframes bounce {
+  from { transform: translateX(-50%) translateY(0); }
+  to { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* Money Reveal Styling */
+.reveal-container {
+  margin-top: 40px;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+.money-display {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 80px; /* Massive impact */
+  color: #fbbf24;
+  text-shadow: 0 10px 40px rgba(251, 191, 36, 0.5);
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.currency {
+  font-size: 32px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* The Main Spin Button */
+.spin-btn {
+  position: relative;
+  display: inline-block;
+  padding: 20px 50px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #064e3b; /* Deep Emerald Text */
+  background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%); /* Gold Gradient */
+  border: none;
+  border-radius: 50px;
   cursor: pointer;
+  outline: none;
+  margin-top: 40px;
+  
+  /* The "3D" shadow under the button */
+  box-shadow: 0 8px 0px #b45309, 0 15px 25px rgba(251, 191, 36, 0.4);
+  
+  transition: all 0.1s ease; /* Fast transition for a mechanical feel */
+  user-select: none;
+}
+
+/* Hover Effect: Glow slightly brighter */
+.spin-btn:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 0px #b45309, 0 20px 30px rgba(251, 191, 36, 0.5);
+}
+
+/* Pressed Effect: The button physically "pushes" down */
+.spin-btn:active:not(:disabled) {
+  transform: translateY(6px);
+  box-shadow: 0 2px 0px #b45309, 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Disabled state (While spinning) */
+.spin-btn:disabled {
+  background: linear-gradient(180deg, #4b5563 0%, #374151 100%);
+  color: #9ca3af;
+  box-shadow: 0 4px 0px #1f2937;
+  cursor: not-allowed;
+  transform: translateY(4px);
+  opacity: 0.7;
+}
+
+/* Success/Claim Button (Same style but different color) */
+.claim-btn {
+  padding: 18px 45px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: linear-gradient(180deg, #10b981 0%, #059669 100%); /* Emerald Green */
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 6px 0px #064e3b, 0 15px 25px rgba(16, 185, 129, 0.3);
+  transition: all 0.1s ease;
+  margin-top: 20px;
+}
+
+.claim-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0px #064e3b;
 }

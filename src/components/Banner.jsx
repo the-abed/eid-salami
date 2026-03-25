@@ -44,7 +44,7 @@ const styles = {
   },
   heading: {
     fontSize: "3.5rem",
-    margin: "0 0 10px 0",
+    margin: "0 0 20px 0",
     color: "#f3f4f6",
     fontWeight: "700",
     letterSpacing: "-1px",
@@ -52,7 +52,7 @@ const styles = {
   subtext: {
     color: "#9ca3af",
     fontSize: "1.1rem",
-    marginBottom: "30px",
+    marginBottom: "20px",
   },
   btn: {
     padding: "16px 32px",
