@@ -3,22 +3,22 @@ import toast from "react-hot-toast";
 import { useState } from "react";
 
 const Result = () => {
-  const [done, setDone] = useState(false);
+  const [claimed, setClaimed] = useState(false);
 
-  const handleComplete = (amount) => {
-    setDone(true);
-    toast.success(`You received ৳${amount} Salami 🎉`);
+  const handleFinish = (amount) => {
+    toast.success(`🎉 You got ৳${amount} Eid Salami!`);
+    setClaimed(true);
   };
 
   return (
     <div style={styles.container}>
-      {!done ? (
+      {!claimed ? (
         <>
-          <h2>Processing Payment...</h2>
-          <Spinner onComplete={handleComplete} />
+          <h2>Spin & Win Your Salami 🎡</h2>
+          <Spinner onFinish={handleFinish} />
         </>
       ) : (
-        <h1>🎉 Eid Salami Received!</h1>
+        <h1>💰 Successfully Claimed!</h1>
       )}
     </div>
   );
@@ -29,8 +29,8 @@ const styles = {
     height: "100vh",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
     alignItems: "center",
+    justifyContent: "center",
   },
 };
 

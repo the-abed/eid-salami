@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./spinner.css";
+import "../spinner.css";
 
 const amounts = [100, 200, 500, 1000, 2000];
 
