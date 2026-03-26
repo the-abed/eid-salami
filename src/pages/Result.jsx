@@ -82,6 +82,7 @@ const styles = {
     fontWeight: "700",
     color: "#fff",
     marginBottom: "10px",
+    
   },
   subtitle: {
     color: "#9ca3af",
@@ -107,14 +108,15 @@ const styles = {
     fontSize: "22px",
     color: "#fff",
     fontWeight: "600",
-    margin: "0",
+    marginBottom: "30px",
   },
   amountDisplay: {
     fontSize: "60px",
     fontWeight: "800",
     color: "#fbbf24",
-    margin: "10px 0",
+    // margin: "10px 0",
     letterSpacing: "-2px",
+    marginBottom: "20px",
   },
   currency: {
     fontSize: "24px",

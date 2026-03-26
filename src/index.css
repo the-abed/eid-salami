@@ -1,6 +1,8 @@
 /* Import Poppins from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
 
+
+
 /* Apply it to the entire project */
 * {
   margin: 0;
@@ -15,7 +17,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 * {
   font-family: 'Poppins', sans-serif !important;
