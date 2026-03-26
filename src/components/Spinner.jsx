@@ -41,7 +41,8 @@ const Spinner = ({ onFinish }) => {
         
         <div
           className="wheel"
-          style={{ transform: `rotate(${rotation}deg)` }}
+          style={{ transform: `rotate(${rotation}deg)`
+         }}
         >
           {amounts.map((amt, i) => (
             <div

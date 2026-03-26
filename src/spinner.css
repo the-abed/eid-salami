@@ -1,175 +1,220 @@
-/* Container glass effect */
+/* ===== Global Background ===== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #020617, #0f172a);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Container ===== */
 .spinner-container {
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+  padding: 30px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px;
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(20px);
-  border-radius: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
-  
+  gap: 20px;
+
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(18px);
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.08);
+
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
 }
 
-/* The Gold Outer Ring */
+/* ===== Wheel Wrapper (Golden Ring) ===== */
 .wheel-wrapper {
   position: relative;
-  padding: 12px;
-  background: linear-gradient(145deg, #fbbf24, #b45309);
+  padding: 10px;
   border-radius: 50%;
-  box-shadow: 0 0 50px rgba(251, 191, 36, 0.2), inset 0 0 10px rgba(0,0,0,0.3);
+
+  background: linear-gradient(145deg, #facc15, #ca8a04);
+
+  box-shadow: 
+    0 0 40px rgba(250, 204, 21, 0.25),
+    inset 0 0 8px rgba(0,0,0,0.3);
 }
 
+/* ===== Wheel ===== */
 .wheel {
-  width: 320px;
-  height: 320px;
+  width: min(80vw, 320px);
+  height: min(80vw, 320px);
   border-radius: 50%;
   position: relative;
-  border: 6px solid #022c22;
   overflow: hidden;
+
+  border: 5px solid #022c22;
+
   transition: transform 5s cubic-bezier(0.2, 0, 0, 1);
-  /* Elegant Slices */
+
   background: conic-gradient(
-    #064e3b 0deg 72deg, 
-    #065f46 72deg 144deg, 
-    #059669 144deg 216deg, 
-    #10b981 216deg 288deg, 
-    #34d399 288deg 360deg
+    #064e3b 0deg 72deg,
+    #065f46 72deg 144deg,
+    #047857 144deg 216deg,
+    #059669 216deg 288deg,
+    #10b981 288deg 360deg
   );
 }
 
+/* ===== Slice ===== */
 .slice {
   position: absolute;
   width: 100%;
   height: 100%;
+
   display: flex;
   justify-content: center;
   align-items: flex-start;
+
   padding-top: 30px;
-  color: #fbbf24;
+
+  color: #facc15;
   font-weight: 900;
-  font-size: 20px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-}
-.slice span {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800; /* Makes the ৳ values look heavy and expensive */
-  font-size: 22px;
-  letter-spacing: -1px;
+
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
-/* The Glowing Pointer */
+.slice span {
+  font-size: clamp(14px, 2.5vw, 22px);
+  font-weight: 800;
+}
+
+/* ===== Pointer ===== */
 .pointer {
   position: absolute;
-  top: -20px;
+  top: -18px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 50;
-  font-size: 45px;
-  filter: drop-shadow(0 0 15px #fbbf24);
+  z-index: 10;
+
+  font-size: clamp(30px, 6vw, 42px);
+
+  filter: drop-shadow(0 0 10px #facc15);
+
   animation: bounce 0.6s infinite alternate ease-in-out;
 }
 
 @keyframes bounce {
   from { transform: translateX(-50%) translateY(0); }
-  to { transform: translateX(-50%) translateY(-10px); }
+  to { transform: translateX(-50%) translateY(-6px); }
 }
 
-/* Money Reveal Styling */
+/* ===== Result Section ===== */
 .reveal-container {
-  margin-top: 40px;
+  margin-top: 0px;
   text-align: center;
-  animation: fadeIn 1s ease;
+  animation: fadeIn 0.8s ease;
 }
 
+.reveal-container p {
+  color: #9ca3af;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+/* ===== Money Display ===== */
 .money-display {
-  font-family: 'Poppins', sans-serif;
   font-weight: 900;
-  font-size: 80px; /* Massive impact */
-  color: #fbbf24;
-  text-shadow: 0 10px 40px rgba(251, 191, 36, 0.5);
+  font-size: clamp(40px, 10vw, 80px);
+  color: #facc15;
+
+  text-shadow: 0 10px 30px rgba(250, 204, 21, 0.4);
+
+  margin-top: 30px;
   margin-bottom: 20px;
-  margin-top: 40px;
 }
 
 .currency {
-  font-size: 32px;
-  margin-right: 8px;
-  vertical-align: middle;
+  font-size: 0.5em;
+  margin-right: 5px;
+  
 }
 
+/* ===== Fade Animation ===== */
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
 }
 
-/* The Main Spin Button */
+/* ===== Spin Button ===== */
 .spin-btn {
-  position: relative;
-  display: inline-block;
-  padding: 20px 50px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px;
+  width: 100%;
+  max-width: 280px;
+
+  padding: 16px;
+
+  font-size: 16px;
   font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #064e3b; /* Deep Emerald Text */
-  background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%); /* Gold Gradient */
+  letter-spacing: 1px;
+
   border: none;
-  border-radius: 50px;
+  border-radius: 40px;
+
   cursor: pointer;
-  outline: none;
-  margin-top: 40px;
-  
-  /* The "3D" shadow under the button */
-  box-shadow: 0 8px 0px #b45309, 0 15px 25px rgba(251, 191, 36, 0.4);
-  
-  transition: all 0.1s ease; /* Fast transition for a mechanical feel */
-  user-select: none;
+
+  color: #022c22;
+  background: linear-gradient(180deg, #facc15, #eab308);
+
+  box-shadow: 
+    0 6px 0 #a16207,
+    0 10px 20px rgba(250, 204, 21, 0.3);
+
+  transition: all 0.15s ease;
 }
 
-/* Hover Effect: Glow slightly brighter */
+/* Hover */
 .spin-btn:hover:not(:disabled) {
-  filter: brightness(1.1);
   transform: translateY(-2px);
-  box-shadow: 0 10px 0px #b45309, 0 20px 30px rgba(251, 191, 36, 0.5);
 }
 
-/* Pressed Effect: The button physically "pushes" down */
+/* Click */
 .spin-btn:active:not(:disabled) {
-  transform: translateY(6px);
-  box-shadow: 0 2px 0px #b45309, 0 5px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #a16207;
 }
 
-/* Disabled state (While spinning) */
+/* Disabled */
 .spin-btn:disabled {
-  background: linear-gradient(180deg, #4b5563 0%, #374151 100%);
+  background: #374151;
   color: #9ca3af;
-  box-shadow: 0 4px 0px #1f2937;
+  box-shadow: 0 4px 0 #1f2937;
   cursor: not-allowed;
-  transform: translateY(4px);
   opacity: 0.7;
 }
 
-/* Success/Claim Button (Same style but different color) */
+/* ===== Claim Button ===== */
 .claim-btn {
-  padding: 18px 45px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+  width: 100%;
+  max-width: 260px;
+
+  padding: 14px;
+
+  font-size: 15px;
   font-weight: 700;
-  text-transform: uppercase;
-  color: #ffffff;
-  background: linear-gradient(180deg, #10b981 0%, #059669 100%); /* Emerald Green */
+
   border: none;
-  border-radius: 16px;
+  border-radius: 12px;
+
   cursor: pointer;
-  box-shadow: 0 6px 0px #064e3b, 0 15px 25px rgba(16, 185, 129, 0.3);
-  transition: all 0.1s ease;
-  margin-top: 20px;
+
+  color: #ffffff;
+  background: linear-gradient(180deg, #059669, #047857);
+
+  box-shadow: 
+    0 5px 0 #064e3b,
+    0 10px 20px rgba(16,185,129,0.3);
+
+  transition: 0.15s ease;
 }
 
 .claim-btn:active {
-  transform: translateY(4px);
-  box-shadow: 0 2px 0px #064e3b;
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #064e3b;
 }
