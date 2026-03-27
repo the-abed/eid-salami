@@ -20,7 +20,7 @@ const FakeNotification = ({ amount }) => {
       <div style={styles.body}>
         <strong>bKash</strong>
         <p style={styles.text}>
-          You have received Salami: ৳{amount}.00 from Eid-Salami-Bot. 
+          You have received Salami: ৳{amount}.00 from Mohammad Abed. 
           Fee ৳0.00. Balance ৳{amount + 500}.00. Ref: Eid Mubarak!
         </p>
       </div>

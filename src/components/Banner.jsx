@@ -38,7 +38,11 @@ const Banner = () => {
           Get Salami 
           <span style={{ marginLeft: '10px' }}>💰</span>
         </button>
+        <footer style={styles.developerCredit}>
+  Developed by <span style={{ color: "#fbbf24", fontWeight: "600" }}>Mohammad Abed</span>
+</footer>
       </div>
+      
     </div>
   );
 };
@@ -92,6 +96,20 @@ const styles = {
     textTransform: "uppercase",
     letterSpacing: "1px",
   },
+  developerCredit: {
+  position: "",
+  bottom: "20px",
+  fontSize: "12px",
+  color: "rgba(255, 255, 255, 0.4)",
+  letterSpacing: "1px",
+  textTransform: "uppercase",
+  fontFamily: "'Poppins', sans-serif",
+  textAlign: "center",
+  marginTop: "30px",
+  width: "100%",
+  maxWidth: "500px",
+  
+}
 };
 
 export default Banner;
