@@ -25,33 +25,34 @@ Users can spin a colorful wheel and win random Eid Salami amounts 💰
 
 ---
 
-📁 Project Structure
+## 📁 Project Structure
 
 src/
 │
 ├── components/
-│   ├── Banner.jsx
-│   ├── Spinner.jsx
-│   └── spinner.css
+│ ├── Banner.jsx
+│ ├── Spinner.jsx
+│ └── spinner.css
 │
 ├── pages/
-│   ├── Home.jsx
-│   ├── Payment.jsx
-│   └── Result.jsx
+│ ├── Home.jsx
+│ ├── Payment.jsx
+│ └── Result.jsx
 │
 ├── routes/
-│   └── routes.jsx
+│ └── routes.jsx
 │
 ├── App.jsx
-├── main.jsx
+└── main.jsx
 
 ---
+
 
 ⚙️ Installation & Setup
 
 Clone the repository and install dependencies:
 
-git clone https://github.com/your-username/eid-salami-app.git
+git clone https://github.com/the-abed/eid-salami-app.git
 cd eid-salami-app
 npm install
 npm run dev
