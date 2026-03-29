@@ -18,8 +18,7 @@ Users can spin a colorful wheel and win random Eid Salami amounts 💰
 
 🛠️ Tech Stack
 
-- React (Vite)
-- React Router DOM
+- React 
 - React Hot Toast
 - CSS (Custom styling)
 
